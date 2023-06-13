@@ -1,9 +1,10 @@
+-- test veritabanınızda employee isimli sütun bilgileri id(INTEGER), name VARCHAR(50), birthday DATE, email VARCHAR(100) olan bir tablo oluşturalım.
 CREATE TABLE IF NOT EXISTS employee(
 	id INTEGER, 
 	name VARCHAR(50), 
 	birthday DATE, 
 	email VARCHAR(100));
-	
+--Oluşturduğumuz employee tablosuna 'Mockaroo' servisini kullanarak 50 adet veri ekleyelim.
 insert into employee (id, name, birthday, email) values (1, 'Dael Ranger', '1997-04-02', 'dranger0@shareasale.com');
 insert into employee (id, name, birthday, email) values (2, 'Nadeen Bendon', '1972-06-01', 'nbendon1@t.co');
 insert into employee (id, name, birthday, email) values (3, 'Derby Bomb', '1995-04-17', 'dbomb2@yale.edu');
@@ -54,3 +55,38 @@ insert into employee (id, name, birthday, email) values (47, 'Kaleb Damarell', '
 insert into employee (id, name, birthday, email) values (48, 'Herrick Gomm', '2018-02-26', 'hgomm1b@shutterfly.com');
 insert into employee (id, name, birthday, email) values (49, 'Elwira De Ferraris', '1966-03-05', 'ede1c@youku.com');
 insert into employee (id, name, birthday, email) values (50, 'Helga Ratnage', '2010-01-04', 'hratnage1d@springer.com');
+
+-- Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+
+UPDATE employee SET name = 'john'
+Where name LIKE '%k';
+
+UPDATE employee SET birthday = '1990-01-01'
+Where email LIKE '%@%' ;
+
+UPDATE employee SET name = 'john'
+Where name LIKE '%Duddy';
+
+UPDATE employee SET name = 'john'
+Where name LIKE '____%mix';
+
+UPDATE employee SET id = 'julio'
+Where length(name) > 15;
+
+--Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+DELETE FROM employee
+Where name LIKE '_______';
+
+DELETE FROM employee
+WHERE id =3;
+
+DELETE FROM employee
+WHERE email LIKE ' %@cisco.com ';
+
+DELETE FROM employee
+WHERE id >38;
+
+DELETE FROM employee
+WHERE birthday = '1985-01-15';
+
+
